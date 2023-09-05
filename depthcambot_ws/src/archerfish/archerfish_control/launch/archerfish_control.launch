@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+  <node pkg="archerfish_control" type="archerfish_control.py" name="archerfish_control_keyboard"  output="screen">
+  </node>
+  
+</launch>

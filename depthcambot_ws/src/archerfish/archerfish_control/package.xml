@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>archerfish_control</name>
+  <version>0.0.0</version>
+  <description>The archerfish package</description>
+
+  <maintainer email="javen.j.w.lin@gmail.com">Javen</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>gazebo_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <depend>rospy</depend>
+  <depend>geometry_msgs</depend>
+  <exec_depend>gazebo_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+</package>

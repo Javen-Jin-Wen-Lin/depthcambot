@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find archerfish_model)/urdf/archerfish.xacro'" />
+  
+  <node pkg="archerfish_control" type="archerfish_control.py" name="archerfish_control"  output="screen">
+  </node>
+  
+  <node pkg="rviz" type="rviz" name="rviz" required="true"
+    args="-d $(find archerfish_model)/rviz/view_robot_with_camera.rviz"/>
+  
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/arobot" args="joint1_position_controller joint2_position_controller joint_state_controller"/>
+
+
+  <rosparam file="$(find archerfish_model)/config/robot_control.yaml" command="load" />
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+   <remap from="/joint_states" to="/arobot/joint_states" />
+  </node>
+  
+</launch>
